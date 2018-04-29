@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094D613258E7CD91249A1072 /* Pods_particalIoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2847D040BE29EC1631109CCB /* Pods_particalIoTest.framework */; };
 		8348CE5520957178009FEE4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE5420957178009FEE4D /* AppDelegate.swift */; };
 		8348CE5720957178009FEE4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE5620957178009FEE4D /* ViewController.swift */; };
 		8348CE5A20957178009FEE4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8348CE5820957178009FEE4D /* Main.storyboard */; };
@@ -14,6 +15,9 @@
 		8348CE5F20957178009FEE4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8348CE5D20957178009FEE4D /* LaunchScreen.storyboard */; };
 		8348CE6A20957178009FEE4D /* particalIoTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE6920957178009FEE4D /* particalIoTestTests.swift */; };
 		8348CE7520957178009FEE4D /* particalIoTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE7420957178009FEE4D /* particalIoTestUITests.swift */; };
+		8348CE84209575D5009FEE4D /* BoxDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE83209575D5009FEE4D /* BoxDocument.swift */; };
+		8348CE8620957BC1009FEE4D /* BoxDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE8520957BC1009FEE4D /* BoxDocuments.swift */; };
+		83D27E3D209682D10011561D /* BoxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D27E3C209682D10011561D /* BoxesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2847D040BE29EC1631109CCB /* Pods_particalIoTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_particalIoTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		798DA2735AD914480D38164E /* Pods-particalIoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-particalIoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest.release.xcconfig"; sourceTree = "<group>"; };
 		8348CE5120957178009FEE4D /* particalIoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = particalIoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8348CE5420957178009FEE4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8348CE5620957178009FEE4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,10 @@
 		8348CE7020957178009FEE4D /* particalIoTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = particalIoTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8348CE7420957178009FEE4D /* particalIoTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = particalIoTestUITests.swift; sourceTree = "<group>"; };
 		8348CE7620957178009FEE4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8348CE83209575D5009FEE4D /* BoxDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDocument.swift; sourceTree = "<group>"; };
+		8348CE8520957BC1009FEE4D /* BoxDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDocuments.swift; sourceTree = "<group>"; };
+		83D27E3C209682D10011561D /* BoxesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxesViewController.swift; sourceTree = "<group>"; };
+		A146F049B9D0F91252ADD569 /* Pods-particalIoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-particalIoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094D613258E7CD91249A1072 /* Pods_particalIoTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37AB718AAE9FDAA873602124 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A146F049B9D0F91252ADD569 /* Pods-particalIoTest.debug.xcconfig */,
+				798DA2735AD914480D38164E /* Pods-particalIoTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8348CE4820957178009FEE4D = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +101,8 @@
 				8348CE6820957178009FEE4D /* particalIoTestTests */,
 				8348CE7320957178009FEE4D /* particalIoTestUITests */,
 				8348CE5220957178009FEE4D /* Products */,
+				37AB718AAE9FDAA873602124 /* Pods */,
+				A424B31305196EB8AD590735 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +119,14 @@
 		8348CE5320957178009FEE4D /* particalIoTest */ = {
 			isa = PBXGroup;
 			children = (
+				8348CE82209575B4009FEE4D /* Model */,
 				8348CE5420957178009FEE4D /* AppDelegate.swift */,
 				8348CE5620957178009FEE4D /* ViewController.swift */,
 				8348CE5820957178009FEE4D /* Main.storyboard */,
 				8348CE5B20957178009FEE4D /* Assets.xcassets */,
 				8348CE5D20957178009FEE4D /* LaunchScreen.storyboard */,
 				8348CE6020957178009FEE4D /* Info.plist */,
+				83D27E3C209682D10011561D /* BoxesViewController.swift */,
 			);
 			path = particalIoTest;
 			sourceTree = "<group>";
@@ -125,6 +149,23 @@
 			path = particalIoTestUITests;
 			sourceTree = "<group>";
 		};
+		8348CE82209575B4009FEE4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8348CE83209575D5009FEE4D /* BoxDocument.swift */,
+				8348CE8520957BC1009FEE4D /* BoxDocuments.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A424B31305196EB8AD590735 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2847D040BE29EC1631109CCB /* Pods_particalIoTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8348CE7920957178009FEE4D /* Build configuration list for PBXNativeTarget "particalIoTest" */;
 			buildPhases = (
+				3E050117BCE3ACDD6613343C /* [CP] Check Pods Manifest.lock */,
 				8348CE4D20957178009FEE4D /* Sources */,
 				8348CE4E20957178009FEE4D /* Frameworks */,
 				8348CE4F20957178009FEE4D /* Resources */,
+				82FBE51EF58A09FC1EE915F9 /* [CP] Embed Pods Frameworks */,
+				369C207BC913575EF4222670 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,13 +298,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		369C207BC913575EF4222670 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E050117BCE3ACDD6613343C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-particalIoTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82FBE51EF58A09FC1EE915F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8348CE4D20957178009FEE4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8348CE8620957BC1009FEE4D /* BoxDocuments.swift in Sources */,
 				8348CE5720957178009FEE4D /* ViewController.swift in Sources */,
 				8348CE5520957178009FEE4D /* AppDelegate.swift in Sources */,
+				83D27E3D209682D10011561D /* BoxesViewController.swift in Sources */,
+				8348CE84209575D5009FEE4D /* BoxDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +527,7 @@
 		};
 		8348CE7A20957178009FEE4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A146F049B9D0F91252ADD569 /* Pods-particalIoTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +543,7 @@
 		};
 		8348CE7B20957178009FEE4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 798DA2735AD914480D38164E /* Pods-particalIoTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
