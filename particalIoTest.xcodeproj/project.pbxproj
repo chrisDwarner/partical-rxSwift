@@ -18,6 +18,7 @@
 		8348CE84209575D5009FEE4D /* BoxDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE83209575D5009FEE4D /* BoxDocument.swift */; };
 		8348CE8620957BC1009FEE4D /* BoxDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348CE8520957BC1009FEE4D /* BoxDocuments.swift */; };
 		83D27E3D209682D10011561D /* BoxesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D27E3C209682D10011561D /* BoxesViewController.swift */; };
+		83D27E4220968F5F0011561D /* BoxDocTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D27E4120968F5F0011561D /* BoxDocTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		8348CE83209575D5009FEE4D /* BoxDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDocument.swift; sourceTree = "<group>"; };
 		8348CE8520957BC1009FEE4D /* BoxDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDocuments.swift; sourceTree = "<group>"; };
 		83D27E3C209682D10011561D /* BoxesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxesViewController.swift; sourceTree = "<group>"; };
+		83D27E4120968F5F0011561D /* BoxDocTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDocTableViewCell.swift; sourceTree = "<group>"; };
 		A146F049B9D0F91252ADD569 /* Pods-particalIoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-particalIoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-particalIoTest/Pods-particalIoTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,14 +121,15 @@
 		8348CE5320957178009FEE4D /* particalIoTest */ = {
 			isa = PBXGroup;
 			children = (
+				83D27E4020968EC30011561D /* views */,
 				8348CE82209575B4009FEE4D /* Model */,
 				8348CE5420957178009FEE4D /* AppDelegate.swift */,
+				83D27E3C209682D10011561D /* BoxesViewController.swift */,
 				8348CE5620957178009FEE4D /* ViewController.swift */,
 				8348CE5820957178009FEE4D /* Main.storyboard */,
 				8348CE5B20957178009FEE4D /* Assets.xcassets */,
 				8348CE5D20957178009FEE4D /* LaunchScreen.storyboard */,
 				8348CE6020957178009FEE4D /* Info.plist */,
-				83D27E3C209682D10011561D /* BoxesViewController.swift */,
 			);
 			path = particalIoTest;
 			sourceTree = "<group>";
@@ -156,6 +159,14 @@
 				8348CE8520957BC1009FEE4D /* BoxDocuments.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		83D27E4020968EC30011561D /* views */ = {
+			isa = PBXGroup;
+			children = (
+				83D27E4120968F5F0011561D /* BoxDocTableViewCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		A424B31305196EB8AD590735 /* Frameworks */ = {
@@ -359,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D27E4220968F5F0011561D /* BoxDocTableViewCell.swift in Sources */,
 				8348CE8620957BC1009FEE4D /* BoxDocuments.swift in Sources */,
 				8348CE5720957178009FEE4D /* ViewController.swift in Sources */,
 				8348CE5520957178009FEE4D /* AppDelegate.swift in Sources */,

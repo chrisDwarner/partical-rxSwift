@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class BoxesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createNewBoxButton: UIBarButtonItem!
+
+    let boxDocuments = Observable.just(BoxDocument.testData)
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupCells()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +29,15 @@ class BoxesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+    private func setupCells() {
+        boxDocuments.bind(to: tableView.rx.items(cellIdentifier:"BoxCellId", cellType:BoxDocTableViewCell.self)) {
+            row, box, cell in
+            cell.configureWithBox(boxDocument: box)
+        }
+        .disposed(by: disposeBag)
+    }
+
 
     /*
     // MARK: - Navigation

@@ -9,8 +9,13 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HoeflerText.ttc">
+            <string>HoeflerText-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Title-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="particalIoTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,12 +102,13 @@
                             <constraint firstItem="JJq-zr-1CV" firstAttribute="top" secondItem="vMc-je-4FV" secondAttribute="bottom" constant="37" id="3gc-Nl-F4E"/>
                             <constraint firstItem="hYZ-sa-UPG" firstAttribute="top" secondItem="S7V-uR-LDg" secondAttribute="bottom" constant="37" id="4Qj-NV-aNT"/>
                             <constraint firstItem="3lG-Vk-5UZ" firstAttribute="top" secondItem="pUI-nd-U5J" secondAttribute="bottom" constant="46" id="72c-Sx-rY0"/>
-                            <constraint firstItem="e4B-wt-TBn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ded-Ed-6HK"/>
-                            <constraint firstItem="g0d-W6-IC6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EV2-9z-1GI"/>
+                            <constraint firstAttribute="trailing" secondItem="7EY-WB-POt" secondAttribute="trailing" constant="330.5" id="APz-rI-cwM"/>
+                            <constraint firstItem="e4B-wt-TBn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ded-Ed-6HK"/>
+                            <constraint firstItem="g0d-W6-IC6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EV2-9z-1GI"/>
                             <constraint firstItem="pUI-nd-U5J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="KTW-HQ-OU7"/>
                             <constraint firstItem="vMc-je-4FV" firstAttribute="top" secondItem="3lG-Vk-5UZ" secondAttribute="bottom" constant="37" id="MrJ-eF-sTq"/>
                             <constraint firstItem="JJq-zr-1CV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="PKO-IP-hLW"/>
-                            <constraint firstItem="Aqq-AA-ClT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QCa-Td-05O"/>
+                            <constraint firstItem="Aqq-AA-ClT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QCa-Td-05O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JJq-zr-1CV" secondAttribute="trailing" constant="62" id="QUz-wJ-yai"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hYZ-sa-UPG" secondAttribute="trailing" constant="62" id="Qsk-3L-RpB"/>
                             <constraint firstItem="pUI-nd-U5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="W8e-3T-VzJ"/>
@@ -110,25 +116,39 @@
                             <constraint firstItem="hYZ-sa-UPG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="b5Q-B4-gVM"/>
                             <constraint firstItem="3lG-Vk-5UZ" firstAttribute="top" secondItem="e4B-wt-TBn" secondAttribute="bottom" constant="13" id="dod-tO-ThH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3lG-Vk-5UZ" secondAttribute="trailing" constant="62" id="elR-pI-yUS"/>
+                            <constraint firstAttribute="trailing" secondItem="e4B-wt-TBn" secondAttribute="trailing" constant="318.5" id="evY-CK-hID"/>
+                            <constraint firstAttribute="trailing" secondItem="g0d-W6-IC6" secondAttribute="trailing" constant="287" id="fX9-3k-UzZ"/>
                             <constraint firstItem="3lG-Vk-5UZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="ga8-oe-FKs"/>
-                            <constraint firstItem="CYB-Ym-e8W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="k5r-Z7-EG8"/>
-                            <constraint firstItem="ipa-69-cXi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="l9X-l1-tHg"/>
+                            <constraint firstAttribute="trailing" secondItem="Aqq-AA-ClT" secondAttribute="trailing" constant="312" id="iob-Rr-7T8"/>
+                            <constraint firstItem="CYB-Ym-e8W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k5r-Z7-EG8"/>
+                            <constraint firstItem="ipa-69-cXi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="l9X-l1-tHg"/>
+                            <constraint firstAttribute="trailing" secondItem="ipa-69-cXi" secondAttribute="trailing" constant="277.5" id="lYq-en-cLp"/>
                             <constraint firstItem="vMc-je-4FV" firstAttribute="top" secondItem="Aqq-AA-ClT" secondAttribute="bottom" constant="8" id="nJ2-rC-oXB"/>
                             <constraint firstItem="hYZ-sa-UPG" firstAttribute="top" secondItem="CYB-Ym-e8W" secondAttribute="bottom" constant="8" id="nq3-SO-AJW"/>
-                            <constraint firstItem="7EY-WB-POt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oeO-nj-Yb6"/>
+                            <constraint firstItem="7EY-WB-POt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oeO-nj-Yb6"/>
                             <constraint firstItem="S7V-uR-LDg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="ps5-A4-NEO"/>
                             <constraint firstItem="7EY-WB-POt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="qzM-EA-7lJ"/>
                             <constraint firstItem="JJq-zr-1CV" firstAttribute="top" secondItem="g0d-W6-IC6" secondAttribute="bottom" constant="8" id="rT4-Cy-Jq8"/>
                             <constraint firstItem="S7V-uR-LDg" firstAttribute="top" secondItem="ipa-69-cXi" secondAttribute="bottom" constant="8" id="sRr-mV-RXq"/>
                             <constraint firstItem="S7V-uR-LDg" firstAttribute="top" secondItem="JJq-zr-1CV" secondAttribute="bottom" constant="37" id="ssr-RY-wGk"/>
+                            <constraint firstAttribute="trailing" secondItem="CYB-Ym-e8W" secondAttribute="trailing" constant="295" id="t7e-QW-Y6S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pUI-nd-U5J" secondAttribute="trailing" constant="62" id="v3a-WM-R3E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S7V-uR-LDg" secondAttribute="trailing" constant="62" id="yc7-GZ-Y0j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="wUF-S7-wGR">
+                    <navigationItem key="navigationItem" id="wUF-S7-wGR">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="YPf-q3-s7b"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="YPf-q3-s7b" id="b8S-bv-0Kw"/>
+                        <outlet property="deviceIdTextField" destination="JJq-zr-1CV" id="i99-TX-alv"/>
+                        <outlet property="keyTextField" destination="pUI-nd-U5J" id="Vdn-qQ-Nnc"/>
+                        <outlet property="productIdTextField" destination="S7V-uR-LDg" id="RGZ-1h-dy6"/>
+                        <outlet property="scopeTextField" destination="vMc-je-4FV" id="OaQ-pO-rZ7"/>
+                        <outlet property="updatedTextField" destination="hYZ-sa-UPG" id="aPZ-yo-0u2"/>
+                        <outlet property="valueTextField" destination="3lG-Vk-5UZ" id="5Jo-cJ-bqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,14 +166,39 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h7f-lA-zNe">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoxCellId" rowHeight="75" id="h7f-lA-zNe" customClass="BoxDocTableViewCell" customModule="particalIoTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7f-lA-zNe" id="SIS-ib-HRB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw2-Fj-o5G">
+                                                    <rect key="frame" x="15" y="11" width="293" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="device_id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2w9-rK-6R5">
+                                                    <rect key="frame" x="15" y="41.5" width="293" height="15"/>
+                                                    <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tw2-Fj-o5G" firstAttribute="top" secondItem="SIS-ib-HRB" secondAttribute="top" constant="11" id="2Lf-RN-Itt"/>
+                                                <constraint firstItem="2w9-rK-6R5" firstAttribute="leading" secondItem="SIS-ib-HRB" secondAttribute="leading" constant="15" id="6jw-QD-XfI"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tw2-Fj-o5G" secondAttribute="trailing" id="7M3-3G-IYD"/>
+                                                <constraint firstItem="Tw2-Fj-o5G" firstAttribute="leading" secondItem="SIS-ib-HRB" secondAttribute="leading" constant="15" id="Lo6-2a-vXX"/>
+                                                <constraint firstAttribute="trailing" secondItem="2w9-rK-6R5" secondAttribute="trailing" id="jRb-R9-Z56"/>
+                                                <constraint firstItem="2w9-rK-6R5" firstAttribute="top" secondItem="Tw2-Fj-o5G" secondAttribute="bottom" constant="11" id="ojz-Wv-2a0"/>
+                                                <constraint firstAttribute="bottom" secondItem="2w9-rK-6R5" secondAttribute="bottom" constant="18" id="tuc-E9-WJd"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="device_id" destination="2w9-rK-6R5" id="BOH-XH-aUs"/>
+                                            <outlet property="key" destination="Tw2-Fj-o5G" id="V59-6n-3Mx"/>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="returnBoxDocSegue" id="bCV-gO-m3o"/>
                                         </connections>
                                     </tableViewCell>
@@ -179,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mj-LG-T1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="805"/>
+            <point key="canvasLocation" x="669.60000000000002" y="804.64767616191909"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m5w-7t-0Be">
