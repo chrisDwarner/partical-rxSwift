@@ -22,9 +22,12 @@ class BoxesViewController: UIViewController {
         super.viewDidLoad()
 
         configureTableView()
-        refresh()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated )
+        refresh()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,8 +82,7 @@ class BoxesViewController: UIViewController {
     }
 
     func processEvents(_ newBoxes: [BoxDocument]) {
-        let updatedBoxes = newBoxes + BoxDocuments.instance.boxes.value
-        BoxDocuments.instance.boxes.value = updatedBoxes
+        BoxDocuments.instance.boxes.value = newBoxes
 
         BoxDocuments.instance.boxes.asObservable().subscribe({ e in
 

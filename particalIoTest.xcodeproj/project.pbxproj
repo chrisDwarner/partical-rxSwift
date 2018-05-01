@@ -127,12 +127,12 @@
 				8348CE82209575B4009FEE4D /* Model */,
 				8348CE5420957178009FEE4D /* AppDelegate.swift */,
 				83D27E3C209682D10011561D /* BoxesViewController.swift */,
+				83AD6A1C20980EFE0070C0D8 /* NewBoxViewController.swift */,
 				8348CE5620957178009FEE4D /* ViewController.swift */,
 				8348CE5820957178009FEE4D /* Main.storyboard */,
 				8348CE5B20957178009FEE4D /* Assets.xcassets */,
 				8348CE5D20957178009FEE4D /* LaunchScreen.storyboard */,
 				8348CE6020957178009FEE4D /* Info.plist */,
-				83AD6A1C20980EFE0070C0D8 /* NewBoxViewController.swift */,
 			);
 			path = particalIoTest;
 			sourceTree = "<group>";

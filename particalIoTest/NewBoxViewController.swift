@@ -21,6 +21,7 @@ class NewBoxViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
 
+    let api = "/box"
     let boxModel = BoxDocument(dictionary: [:])
     let disposeBag = DisposeBag()
 
@@ -50,8 +51,22 @@ class NewBoxViewController: UIViewController {
     func confirmButtonValid(key: Observable<String>, device: Observable<String>) -> Observable<Bool> {
         return Observable.combineLatest(key, device)
         { (key, device) in
-            return key.characters.count > 0
-                && device.characters.count > 0
+            return key.count > 0
+                && device.count > 0
+        }
+    }
+
+    func alert(title: String, text: String?) -> Observable<Void> {
+        return Observable.create { [weak self] observer in
+            let alertVC = UIAlertController(title: title, message: text, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                observer.onCompleted()
+            }))
+
+            self?.present(alertVC, animated: true, completion: nil)
+            return Disposables.create {
+                self?.dismiss(animated: true, completion: nil)
+            }
         }
     }
 
@@ -60,6 +75,57 @@ class NewBoxViewController: UIViewController {
     }
 
     @IBAction func addAction(_ sender: Any) {
+
+        _ = Observable.from([api])
+            .map { urlString -> URL in return URL(string: "https://virtserver.swaggerhub.com/particle-iot/box/0.1\(self.api)")! }
+            .map { url -> URLRequest in
+                var request:URLRequest = URLRequest(url: url)
+                request.addValue("application/json", forHTTPHeaderField: "accept")
+                request.addValue("Bearer mytoken123", forHTTPHeaderField: "Authorization")
+                request.httpMethod = "POST"
+
+                do {
+                    let payload = self.boxModel.dictionary
+                    let json = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+                    request.httpBody = json
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+
+                return request }
+            .flatMap { request -> Observable<(HTTPURLResponse, Data)> in return URLSession.shared.rx.response(request: request)}
+            .shareReplay(1)
+            .map { httpResponse, _ -> Bool in
+                if 200 ..< 300 ~= httpResponse.statusCode {
+                    return true
+                }
+                else {
+                    print(httpResponse.statusCode)
+                }
+                return false
+            }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { result in
+
+                var message:String?
+
+                if result {
+                    message = "Success!"
+                }
+                else {
+                    message = "failed to create Box"
+                }
+                self.alert(title: "New Box", text: message)
+                    .take(5.0, scheduler: MainScheduler.instance)
+                    .subscribe(onDisposed: { [weak self] in
+                        self?.dismiss(animated: true, completion: nil)
+                        _ = self?.navigationController?.popViewController(animated: true)
+                    })
+                    .addDisposableTo(self.disposeBag)
+            })
+            .addDisposableTo(disposeBag)
+
         navigationController?.popViewController(animated: true)
     }
 
