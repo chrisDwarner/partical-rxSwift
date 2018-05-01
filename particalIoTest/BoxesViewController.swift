@@ -21,7 +21,7 @@ class BoxesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
+        configureTableView()
         refresh()
     }
 
@@ -29,7 +29,14 @@ class BoxesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    private func configureTableView() {
+        BoxDocuments.instance.boxes.asObservable().bindTo(tableView.rx.items(cellIdentifier: "BoxCellId", cellType: BoxDocTableViewCell.self)) { (row, box, cell) in
+            cell.configureWithBox(boxDocument: box)
+            }
+            .addDisposableTo(disposeBag)
+    }
+
     func refresh() {
        _ = Observable.from([api])
         .map { urlString -> URL in return URL(string: "https://virtserver.swaggerhub.com/particle-iot/box/0.1\(self.api)?per_page=10")! }
@@ -47,7 +54,7 @@ class BoxesViewController: UIViewController {
                           let result = jsonObject as? [String: Any] else {
                             return []
                     }
-                    // filter out the meta data, we only want the devices.
+                    // filter out the meta data, we only want the device list.
                     guard let payload = result["data"] as? [[String:Any]] else {
                         return []
                     }
@@ -64,6 +71,7 @@ class BoxesViewController: UIViewController {
             .map{ objects in
                 return objects.map(BoxDocument.init)
             }
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ [weak self] newBoxes in
                 self?.processEvents(newBoxes)
             })
@@ -73,24 +81,10 @@ class BoxesViewController: UIViewController {
     func processEvents(_ newBoxes: [BoxDocument]) {
         let updatedBoxes = newBoxes + BoxDocuments.instance.boxes.value
         BoxDocuments.instance.boxes.value = updatedBoxes
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+
+        BoxDocuments.instance.boxes.asObservable().subscribe({ e in
+
+        })
+            .addDisposableTo(disposeBag)
     }
 }
-
-// MARK: - Table Data Source
-extension BoxesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BoxDocuments.instance.boxes.value.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let event = BoxDocuments.instance.boxes.value[indexPath.row]
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BoxCellId") as! BoxDocTableViewCell
-        cell.configureWithBox(boxDocument: event)
-        return cell as UITableViewCell
-    }
-}
-
