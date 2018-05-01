@@ -47,7 +47,11 @@ class BoxesViewController: UIViewController {
                           let result = jsonObject as? [String: Any] else {
                             return []
                     }
-                    return [result]
+                    // filter out the meta data, we only want the devices.
+                    guard let payload = result["data"] as? [[String:Any]] else {
+                        return []
+                    }
+                    return payload
                 }
                 else {
                     print(http.statusCode)

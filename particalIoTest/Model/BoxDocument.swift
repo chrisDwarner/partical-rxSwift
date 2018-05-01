@@ -23,14 +23,12 @@ struct BoxDocument: Equatable {
     let updated_at:String
 
     init( dictionary: [String: Any]) {
-        guard let array = dictionary["data"] as? [[String:Any]],
-        let dict = array.first,            
-            let keyName = dict["key"] as? String,
-        let valueItem = dict["value"] as? String,
-        let scopeItem = dict["scope"] as? String,
-        let deviceIdItem = dict["device_id"] as? String,
-        let productIdItem = dict["product_id"] as? Int,
-        let updatedItem = dict["updated_at"] as? String
+        guard let keyName = dictionary["key"] as? String,
+        let valueItem = dictionary["value"] as? String,
+        let scopeItem = dictionary["scope"] as? String,
+        let deviceIdItem = dictionary["device_id"] as? String,
+        let productIdItem = dictionary["product_id"] as? Int,
+        let updatedItem = dictionary["updated_at"] as? String
         else {
             fatalError()
         }
@@ -52,14 +50,6 @@ struct BoxDocument: Equatable {
             "updated_at": updated_at
             ]
     }
-
-//    static let testData: [BoxDocument] = {
-//        let boxOne = BoxDocument(key: "temperature", value: "42", scope: "device", device_id: "255000000000000000000001", product_id: 1234, updated_at: "2018-08-29T09:12:33.001Z")
-//        let boxTwo = BoxDocument(key: "weight", value: "100", scope: "device", device_id: "255000000000000000000002", product_id: 1234, updated_at: "2018-08-29T09:12:33.001Z")
-//        let boxThree = BoxDocument(key: "battery", value: "90", scope: "device", device_id: "255000000000000000000003", product_id: 1234, updated_at: "2018-08-29T09:12:33.001Z")
-//
-//        return [boxOne, boxTwo, boxThree]
-//    }()
 }
 
 extension BoxDocument:Hashable {
