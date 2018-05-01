@@ -42,13 +42,14 @@ class BoxesViewController: UIViewController {
         tableView.rx.modelSelected(BoxDocument.self).subscribe(onNext: { [weak self] box in
             let deviceKey = box.key
 
-            print(deviceKey)
+            print(deviceKey.value)
             guard let strongSelf = self else {return}
 
             guard let boxDetailsVC = strongSelf.storyboard?.instantiateViewController(withIdentifier: "BoxViewDetails") as? ViewController else {
                 return
             }
             boxDetailsVC.boxModel = box
+            boxDetailsVC.keyName = deviceKey.value
             strongSelf.navigationController?.pushViewController(boxDetailsVC, animated: true)
         })
         .addDisposableTo(disposeBag)

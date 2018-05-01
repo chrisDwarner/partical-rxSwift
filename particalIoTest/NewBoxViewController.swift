@@ -32,7 +32,7 @@ class NewBoxViewController: UIViewController {
         value.rx.text.orEmpty.bindTo(boxModel.value).addDisposableTo(disposeBag)
         scope.rx.text.orEmpty.bindTo(boxModel.scope).addDisposableTo(disposeBag)
         device.rx.text.orEmpty.bindTo(boxModel.device_id).addDisposableTo(disposeBag)
-//        product.rx.text.map{ return Int($0!)! }.bindTo(boxModel.product_id).addDisposableTo(disposeBag)
+        product.rx.text.orEmpty.map{ text -> Int in return Int(text) ?? 0 }.bindTo(boxModel.product_id).addDisposableTo(disposeBag)
         updated.rx.text.orEmpty.bindTo(boxModel.updated_at).addDisposableTo(disposeBag)
 
         let dateFormatter : DateFormatter = DateFormatter()
