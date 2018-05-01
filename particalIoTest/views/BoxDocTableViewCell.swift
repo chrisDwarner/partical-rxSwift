@@ -14,8 +14,8 @@ class BoxDocTableViewCell: UITableViewCell {
     @IBOutlet weak var device_id: UILabel!
 
     func configureWithBox( boxDocument: BoxDocument) {
-        key.text = boxDocument.key
-        device_id.text = boxDocument.device_id
+        key.text = boxDocument.key.value
+        device_id.text = boxDocument.device_id.value
     }
 
     override func awakeFromNib() {
