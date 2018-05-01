@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var productIdTextField: UITextField!
     @IBOutlet weak var updatedTextField: UITextField!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
-    
+
+    var boxModel:BoxDocument? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

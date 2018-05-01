@@ -38,6 +38,20 @@ class BoxesViewController: UIViewController {
             cell.configureWithBox(boxDocument: box)
             }
             .addDisposableTo(disposeBag)
+
+        tableView.rx.modelSelected(BoxDocument.self).subscribe(onNext: { [weak self] box in
+            let deviceKey = box.key
+
+            print(deviceKey)
+            guard let strongSelf = self else {return}
+
+            guard let boxDetailsVC = strongSelf.storyboard?.instantiateViewController(withIdentifier: "BoxViewDetails") as? ViewController else {
+                return
+            }
+            boxDetailsVC.boxModel = box
+            strongSelf.navigationController?.pushViewController(boxDetailsVC, animated: true)
+        })
+        .addDisposableTo(disposeBag)
     }
 
     func refresh() {

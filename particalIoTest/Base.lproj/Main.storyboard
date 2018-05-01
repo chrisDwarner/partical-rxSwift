@@ -18,7 +18,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="particalIoTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BoxViewDetails" id="BYZ-38-t0r" customClass="ViewController" customModule="particalIoTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608.8" y="804.64767616191909"/>
+            <point key="canvasLocation" x="1596" y="805"/>
         </scene>
         <!--Box Documents-->
         <scene sceneID="7gL-Pk-wDY">
@@ -199,7 +199,6 @@
                                         <connections>
                                             <outlet property="device_id" destination="2w9-rK-6R5" id="BOH-XH-aUs"/>
                                             <outlet property="key" destination="Tw2-Fj-o5G" id="V59-6n-3Mx"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="returnBoxDocSegue" id="bCV-gO-m3o"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -224,11 +223,12 @@
                     <connections>
                         <outlet property="createNewBoxButton" destination="JRb-Yg-X33" id="5OT-OO-wro"/>
                         <outlet property="tableView" destination="Xbi-tR-W1F" id="1BX-DM-SUQ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="LfL-hy-F2A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mj-LG-T1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669.60000000000002" y="804.64767616191909"/>
+            <point key="canvasLocation" x="650" y="798"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m5w-7t-0Be">
