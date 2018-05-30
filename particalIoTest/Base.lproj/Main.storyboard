@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hoP-2N-cWu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hoP-2N-cWu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HoeflerText.ttc">
-            <string>HoeflerText-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -216,14 +211,14 @@
                     <navigationItem key="navigationItem" title="Box Documents" id="lPz-rC-qea">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JRb-Yg-X33">
                             <connections>
-                                <segue destination="cxD-5O-nKs" kind="show" id="xYx-GG-6Dh"/>
+                                <segue destination="cxD-5O-nKs" kind="show" identifier="newBoxSegue" id="xYx-GG-6Dh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="createNewBoxButton" destination="JRb-Yg-X33" id="5OT-OO-wro"/>
                         <outlet property="tableView" destination="Xbi-tR-W1F" id="1BX-DM-SUQ"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="LfL-hy-F2A"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="viewBoxSegue" id="LfL-hy-F2A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mj-LG-T1G" userLabel="First Responder" sceneMemberID="firstResponder"/>

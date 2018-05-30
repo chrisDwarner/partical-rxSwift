@@ -28,12 +28,14 @@ class NewBoxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        key.rx.text.orEmpty.bindTo(boxModel.key).addDisposableTo(disposeBag)
-        value.rx.text.orEmpty.bindTo(boxModel.value).addDisposableTo(disposeBag)
-        scope.rx.text.orEmpty.bindTo(boxModel.scope).addDisposableTo(disposeBag)
-        device.rx.text.orEmpty.bindTo(boxModel.device_id).addDisposableTo(disposeBag)
-        product.rx.text.orEmpty.map{ text -> Int in return Int(text) ?? 0 }.bindTo(boxModel.product_id).addDisposableTo(disposeBag)
-        updated.rx.text.orEmpty.bindTo(boxModel.updated_at).addDisposableTo(disposeBag)
+        self.navigationItem.hidesBackButton = true
+
+        key.rx.text.orEmpty.bind(to: boxModel.key).disposed(by: disposeBag)
+        value.rx.text.orEmpty.bind(to: boxModel.value).disposed(by: disposeBag)
+        scope.rx.text.orEmpty.bind(to: boxModel.scope).disposed(by: disposeBag)
+        device.rx.text.orEmpty.bind(to: boxModel.device_id).disposed(by: disposeBag)
+        product.rx.text.orEmpty.map{ text -> Int in return Int(text) ?? 0 }.bind(to: boxModel.product_id).disposed(by: disposeBag)
+        updated.rx.text.orEmpty.bind(to: boxModel.updated_at).disposed(by: disposeBag)
 
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -94,8 +96,8 @@ class NewBoxViewController: UIViewController {
                 }
 
                 return request }
-            .flatMap { request -> Observable<(HTTPURLResponse, Data)> in return URLSession.shared.rx.response(request: request)}
-            .shareReplay(1)
+            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in return URLSession.shared.rx.response(request: request)}
+            .share(replay: 1)
             .map { httpResponse, _ -> Bool in
                 if 200 ..< 300 ~= httpResponse.statusCode {
                     return true
@@ -122,9 +124,9 @@ class NewBoxViewController: UIViewController {
                         self?.dismiss(animated: true, completion: nil)
                         _ = self?.navigationController?.popViewController(animated: true)
                     })
-                    .addDisposableTo(self.disposeBag)
+                    .disposed(by: self.disposeBag)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         navigationController?.popViewController(animated: true)
     }

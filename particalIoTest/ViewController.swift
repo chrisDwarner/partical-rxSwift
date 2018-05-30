@@ -30,15 +30,15 @@ class ViewController: UIViewController {
 
 
         if let boxModel = boxModel {
-            keyTextField.rx.text.orEmpty.bindTo(boxModel.key).addDisposableTo(disposeBag)
-            valueTextField.rx.text.orEmpty.bindTo(boxModel.value).addDisposableTo(disposeBag)
-            scopeTextField.rx.text.orEmpty.bindTo(boxModel.scope).addDisposableTo(disposeBag)
-            deviceIdTextField.rx.text.orEmpty.bindTo(boxModel.device_id).addDisposableTo(disposeBag)
-            productIdTextField.rx.text.orEmpty.map{ text -> Int in return Int(text) ?? 0 }.bindTo(boxModel.product_id).addDisposableTo(disposeBag)
-            updatedTextField.rx.text.orEmpty.bindTo(boxModel.updated_at).addDisposableTo(disposeBag)
+            keyTextField.rx.text.orEmpty.bind(to: boxModel.key).disposed(by: disposeBag)
+            valueTextField.rx.text.orEmpty.bind(to: boxModel.value).disposed(by: disposeBag)
+            scopeTextField.rx.text.orEmpty.bind(to: boxModel.scope).disposed(by: disposeBag)
+            deviceIdTextField.rx.text.orEmpty.bind(to: boxModel.device_id).disposed(by: disposeBag)
+            productIdTextField.rx.text.orEmpty.map{ text -> Int in return Int(text) ?? 0 }.bind(to: boxModel.product_id).disposed(by: disposeBag)
+            updatedTextField.rx.text.orEmpty.bind(to: boxModel.updated_at).disposed(by: disposeBag)
 
 
-            self.deleteButton.rx.tap.asObservable().subscribe(onNext: { self.serverRequest("DELETE") }).addDisposableTo(disposeBag)
+            self.deleteButton.rx.tap.asObservable().subscribe(onNext: { self.serverRequest("DELETE") }).disposed(by: disposeBag)
 
             fetchBox()
         }
@@ -71,8 +71,8 @@ class ViewController: UIViewController {
                 request.addValue("application/json", forHTTPHeaderField: "accept")
                 request.addValue("Bearer mytoken123", forHTTPHeaderField: "Authorization")
                 return request }
-            .flatMap { request -> Observable<(HTTPURLResponse, Data)> in return URLSession.shared.rx.response(request: request) }
-            .shareReplay(1)
+            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in return URLSession.shared.rx.response(request: request) }
+            .share(replay: 1)
             .map { http, data -> BoxDocument in
                 if 200 ..< 300 ~= http.statusCode {
 
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
                     self.updatedTextField.text = boxModel.updated_at.value
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     private func serverRequest(_ httpMethod: String) {
@@ -115,8 +115,8 @@ class ViewController: UIViewController {
                     request.addValue("Bearer mytoken123", forHTTPHeaderField: "Authorization")
                     request.httpMethod = httpMethod
                     return request }
-                .flatMap { request -> Observable<(HTTPURLResponse, Data)> in return URLSession.shared.rx.response(request: request)}
-                .shareReplay(1)
+                .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in return URLSession.shared.rx.response(request: request)}
+                .share(replay: 1)
                 .map { httpResponse, _ -> Bool in
                     if 200 ..< 300 ~= httpResponse.statusCode {
                         return true
@@ -153,9 +153,9 @@ class ViewController: UIViewController {
                             self?.dismiss(animated: true, completion: nil)
                             _ = self?.navigationController?.popViewController(animated: true)
                         })
-                        .addDisposableTo(self.disposeBag)
+                        .disposed(by: self.disposeBag)
                 })
-                .addDisposableTo(disposeBag)
+                .disposed(by: disposeBag)
         }
     }
 }

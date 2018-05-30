@@ -34,10 +34,10 @@ class BoxesViewController: UIViewController {
     }
 
     private func configureTableView() {
-        BoxDocuments.instance.boxes.asObservable().bindTo(tableView.rx.items(cellIdentifier: "BoxCellId", cellType: BoxDocTableViewCell.self)) { (row, box, cell) in
+        BoxDocuments.instance.boxes.asObservable().bind(to: tableView.rx.items(cellIdentifier: "BoxCellId", cellType: BoxDocTableViewCell.self)) { (row, box, cell) in
             cell.configureWithBox(boxDocument: box)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         tableView.rx.modelSelected(BoxDocument.self).subscribe(onNext: { [weak self] box in
             let deviceKey = box.key
@@ -52,7 +52,7 @@ class BoxesViewController: UIViewController {
             boxDetailsVC.keyName = deviceKey.value
             strongSelf.navigationController?.pushViewController(boxDetailsVC, animated: true)
         })
-        .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     func refresh() {
@@ -63,8 +63,8 @@ class BoxesViewController: UIViewController {
                 request.addValue("application/json", forHTTPHeaderField: "accept")
                 request.addValue("Bearer mytoken123", forHTTPHeaderField: "Authorization")
                 return request }
-            .flatMap { request -> Observable<(HTTPURLResponse, Data)> in return URLSession.shared.rx.response(request: request) }
-            .shareReplay(1)
+            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in return URLSession.shared.rx.response(request: request) }
+        .share(replay: 1)
             .map { http, data -> [[String: Any]] in
                 if 200 ..< 300 ~= http.statusCode {
 
@@ -93,7 +93,7 @@ class BoxesViewController: UIViewController {
             .subscribe(onNext:{ [weak self] newBoxes in
                 self?.processEvents(newBoxes)
             })
-            .addDisposableTo(disposeBag)
+        .disposed(by: disposeBag)
     }
 
     func processEvents(_ newBoxes: [BoxDocument]) {
@@ -102,6 +102,6 @@ class BoxesViewController: UIViewController {
         BoxDocuments.instance.boxes.asObservable().subscribe({ e in
 
         })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }
